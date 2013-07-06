@@ -1,0 +1,64 @@
+@import "styles-common.less";
+
+body {
+    background-color: @bodybg;
+}
+
+.navbar {
+    margin-bottom: 0;
+
+    @media (max-width: 979px) {
+        .navbar-fixed-top {
+            margin-bottom: 0;
+        }
+    }
+
+    .btn-navbar {
+        padding: 17px 22px;
+        background-color: darken(@bluedark, 20%);
+        &:hover {
+            background-color: lighten(@bluedark, 20%);
+        }
+    }
+
+    .navbar-inner {
+        border: none;
+        background-color: @bluedark;
+
+        .brand {
+            padding-top: 9px;
+            color: @white;
+            small {
+                font-size: 75%;
+            }
+        }
+        .nav > li > a {
+            padding: 20px;
+            color: @white;
+        }
+        .nav > .active > a {
+            background-color: @white;
+            color: @bluedark;
+        }
+    }
+}
+
+.footer {
+    margin-top: 20px;
+}
+
+.cover-area {
+    background-color: #AAA;
+    max-height: 500px;
+    margin-bottom: 20px;
+    overflow-y: hidden;
+    @media (max-width: 767px) {
+        margin-left: -20px;
+        margin-right: -20px;
+    }
+    .cover-pic {
+        img {
+            width: 100%;
+        }
+    }
+}
