@@ -27,16 +27,35 @@
 {{-- Content --}}
 @section('content')
 <div class="row">
-    <div class="col-lg-8">
-        <div style="background-color: #FFF; height: 400px">
-
-        </div>
-    </div>
-    <div class="col-lg-4">
-        <div style="background-color: #FFF; height: 400px">
-
-        </div>
+    <div class="col-lg-12">
+		<div id="masonry">
+			<?php for($n=0; $n<20; $n++): ?>
+			<div class="item">
+				<div class="content">
+					<img src="holder.js/100%x300" />
+				</div>
+				<div class="description">
+					<p class="desc">Fajar Pagi Yogyakarta</p>
+					<div class="author">
+						<img class="pic" src="holder.js/32x32" />
+						<span class="name">Yoga Hanggara</span>
+						<span class="date">1 Agustus 2013</span>
+					</div>
+				</div>
+			</div>		
+			<?php endfor; ?>																							
+		</div>
     </div>
 </div>
+
+<script type="text/javascript">
+$('#masonry').imagesLoaded( function(){
+  $('#masonry').masonry({
+   itemSelector: '.item',
+   isFitWidth: true,
+   gutter: 20
+  });
+});
+</script>
 
 @stop

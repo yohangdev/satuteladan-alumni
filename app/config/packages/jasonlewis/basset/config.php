@@ -48,6 +48,9 @@ return array(
             {
                 $collection->javascript('//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js');
                 $collection->add('../../../vendor/twitter/bootstrap/dist/js/bootstrap.min.js');
+                $collection->add('../../../private/assets/js/masonry.pkgd.min.js');
+                $collection->add('../../../private/assets/js/imagesloaded.pkgd.min.js');
+                $collection->add('holder.js');
                 // $collection->add('../../../private/assets/js/jquery.parallax-1.1.3.js');
                 // $collection->add('../../../private/assets/js/jquery.localscroll-1.2.7-min.js');
                 // $collection->add('../../../private/assets/js/jquery.scrollTo-1.4.2-min.js');

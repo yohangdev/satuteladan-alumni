@@ -17,13 +17,54 @@ header.header {
 }
 
 section.area-cover {
-    background-color: #666;
+    background-color: #6E99CF;
     // max-height: 500px;
-    height: 200px;
+    height: 80px;
     margin-bottom: 20px;
     .cover-pic {
         img {
             width: 100%;
         }
+    }
+}
+
+section.area-main {
+    .area-content {
+        background-color: #FFF;
+        padding: 20px;
+        margin: 0 -20px;
+
+        #masonry {
+            margin: 0 auto;
+            .item {
+                width: 215px;
+
+                &.featured {
+                    width: 450px;
+                }
+
+                .content {
+                    
+                }
+
+                .description {
+                    p.desc {
+                        font-size: 13px;
+                        margin: 5px 0;
+                    }
+
+                    .author {
+                        .pic {
+                            float: left;
+                            margin-right: 5px;
+                        }
+                        .name, .date {
+                            display: block;
+                            font-size: 8pt;
+                        }
+                    }
+                }
+            }               
+        }     
     }
 }

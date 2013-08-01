@@ -12,6 +12,7 @@
     <meta name="description" content="Lorem ipsum dolor sit amet, nihil fabulas et sea, nam posse menandri scripserit no, mei." />    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {{ Basset::show('public.css') }}
+    {{ Basset::show('public.js') }}
 </head>
 <body>
 <div id="wrap">    
@@ -49,24 +50,28 @@
     <!-- Container -->
     <section class="area-main">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="breadcrumbs">
-                        @yield('breadcrumbs')
+            <div class="area-content">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="breadcrumbs">
+                            @yield('breadcrumbs')
+                        </div>
                     </div>
                 </div>
+
+                <!-- Notifications -->
+                <!-- include('notifications') -->
+                <!-- ./ notifications -->
+
+                <!-- Content -->
+                @yield('content')
+                <!-- ./ content -->
             </div>
-
-            <!-- Notifications -->
-            <!-- include('notifications') -->
-            <!-- ./ notifications -->
-
-            <!-- Content -->
-            @yield('content')
-            <!-- ./ content -->
+            <!-- ./ area-content -->
         </div>
+        <!-- ./ container -->
     </section>
-    <!-- ./ container -->
+    <!-- ./ area-main -->
 
     <!-- the following div is needed to make a sticky footer -->
     <div id="push"></div>
@@ -77,11 +82,11 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">        
-                <p class="muted credit">Information System</p>
+                <p>Information System</p>
             </div>
         </div>
     </div>
 </footer>
-{{ Basset::show('public.js') }}
+
 </body>
 </html>
