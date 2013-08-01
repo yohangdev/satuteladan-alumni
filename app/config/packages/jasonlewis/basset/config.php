@@ -25,7 +25,37 @@ return array(
     | You can overwrite this collection or remove it by publishing the config.
     |
     */
+   
+    'collections' => array(
 
+        'public' => function($collection)
+        {
+            $collection->directory('assets/css', function($collection)
+            {
+                $collection->directory('../../../vendor/twitter/bootstrap/dist/css', function($collection) {
+                    $collection->add('bootstrap.min.css');
+                });
+
+                // $collection->add('../../../vendor/fortawesome/font-awesome/less/font-awesome.less')->apply('Less');
+
+                $collection->directory('../../../private/assets/less', function($collection) {
+                    $collection->add('style.less');
+                })->apply('Less');
+
+            })->apply('CssMin');
+
+            $collection->directory('assets/js', function($collection)
+            {
+                $collection->javascript('//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js');
+                $collection->add('../../../vendor/twitter/bootstrap/dist/js/bootstrap.min.js');
+                // $collection->add('../../../private/assets/js/jquery.parallax-1.1.3.js');
+                // $collection->add('../../../private/assets/js/jquery.localscroll-1.2.7-min.js');
+                // $collection->add('../../../private/assets/js/jquery.scrollTo-1.4.2-min.js');
+            })->apply('JsMin');
+        }      
+    ),
+
+    /*
     'collections' => array(
 
         'application' => function($collection)
@@ -56,6 +86,7 @@ return array(
         }
 
     ),
+    */
 
     /*
     |--------------------------------------------------------------------------

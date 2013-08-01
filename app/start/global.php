@@ -81,22 +81,3 @@ App::down(function()
 */
 
 require app_path().'/filters.php';
-
-
-Basset::collection('fo-css', function($collection)
-{
-    $collection->add('../vendor/littlesparkvt/flatstrap/assets/css/bootstrap.min.css');
-    $collection->add('../vendor/littlesparkvt/flatstrap/assets/css/bootstrap-responsive.min.css');
-    $collection->add('../vendor/fortawesome/font-awesome/css/font-awesome.min.css');
-
-    $collection->directory('../app/assets/', function($collection)
-    {
-        $collection->requireDirectory('less');
-    })->apply('Less')->apply('CssMin');
-});
-
-Basset::collection('fo-js', function($collection)
-{
-    $collection->add('../app/assets/js/jquery-2.0.3.min.js');
-    $collection->add('../vendor/littlesparkvt/flatstrap/assets/js/bootstrap.min.js');
-});
