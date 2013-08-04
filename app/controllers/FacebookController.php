@@ -94,6 +94,10 @@ class FacebookController extends BaseController {
             mkdir($storeProfilePic, 0755, TRUE);
         }
 
+        if( ! is_dir($storeDir . $user_id . '/pins/')) {
+            mkdir($storeDir . $user_id . '/pins/', 0755, TRUE);
+        }
+
         $url  = 'https://graph.facebook.com/'.$fb_userid . '/picture?width=480&height=480&access_token=' . $user_token;
         $data = file_get_contents($url);
         $img  = Image::make($data);
