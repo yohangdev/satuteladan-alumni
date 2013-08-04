@@ -113,7 +113,9 @@ return array(
 		'Illuminate\Validation\ValidationServiceProvider',
 		'Illuminate\View\ViewServiceProvider',
 		'Illuminate\Workbench\WorkbenchServiceProvider',
-	    'Basset\BassetServiceProvider'
+	    'Basset\BassetServiceProvider',
+	    'Intervention\Image\ImageServiceProvider',
+	    'Krucas\Notification\NotificationServiceProvider'
 	),
 
 	/*
@@ -178,7 +180,11 @@ return array(
 		'URL'             => 'Illuminate\Support\Facades\URL',
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
-		'Basset' 		  => 'Basset\Facade'
+		'Basset' 		  => 'Basset\Facade',
+		'Image' 		  => 'Intervention\Image\Facades\Image',
+        'String'          => 'Andrew13\Helpers\String', // String
+        'Carbon'          => 'Carbon\Carbon', // Carbon		
+        'Notification'    => 'Krucas\Notification\Facades\Notification',	
 	),
 
 );

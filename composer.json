@@ -8,7 +8,10 @@
 		"jasonlewis/basset": "dev-master",
 		"twitter/bootstrap": "dev-3.0.0-wip",		
 		"fortawesome/font-awesome": "dev-master",
-		"davejamesmiller/laravel-breadcrumbs": "dev-master"
+		"davejamesmiller/laravel-breadcrumbs": "dev-master",
+		"laravel/curl": "dev-master",
+		"intervention/image": "dev-master",
+		"edvinaskrucas/notification": "1.*"
 	},
 	"require-dev": {
         "leafo/lessphp": "v0.3.9",
@@ -19,6 +22,7 @@
 		"classmap": [
 			"app/commands",
 			"app/controllers",
+			"app/library",
 			"app/models",
 			"app/database/migrations",
 			"app/database/seeds",
