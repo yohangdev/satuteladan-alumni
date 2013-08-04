@@ -13,6 +13,7 @@ Manage Post -
 	<div class="pull-left" style="margin-left: 10px">
 	<a href="{{{ URL::to('user/pin/create.php') }}}" class="btn btn-primary">Create New</a>
 	</div>
+	<div class="clearfix"></div>
 </div>
 @if(count($pins) > 0)
 <table class="table table-striped">
@@ -45,10 +46,9 @@ Manage Post -
 	</tbody>
 </table>
 @else
-
 <div class="alert alert-info">
-        <strong>Tidak ada data</strong> Anda belum mempunyai posting. Silahkan buat baru.
-      </div>
+    <strong>Tidak ada data</strong> Anda belum mempunyai posting. Silahkan buat baru.
+</div>
 @endif
 
 {{ $pins->links() }}
