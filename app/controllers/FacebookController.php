@@ -118,8 +118,8 @@ class FacebookController extends BaseController {
         $img  = Image::make($data)->resize(256, 256);
         $img->save($storeProfilePic . 'profile-256x256.jpg');                    
 
-        // Log in user
-        Auth::loginUsingId($user_id);
+        // Log in user, remember session
+        Auth::loginUsingId($user_id, true);
 
         // Redirect to Dashboard
         return Redirect::to('user/dashboard.php');

@@ -35,6 +35,9 @@ class UserController extends BaseController {
 
         if (Auth::attempt(array('email' => $email, 'password' => $password, 'active' => 1, 'external' => 0), $remember))
         {
+            $user = Auth::user();
+            $user->login_last = New DateTime;
+            $user->save();
             return Redirect::intended('user/dashboard.php');
         }
         else

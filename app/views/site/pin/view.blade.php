@@ -24,6 +24,10 @@
 
 @stop
 
+@section('fb_image')
+	{{ asset($pin->source) }}
+@stop
+
 {{-- Content --}}
 @section('content')
 <div class="row">

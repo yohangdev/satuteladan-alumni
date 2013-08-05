@@ -24,7 +24,7 @@ Manage Post -
 			<th width="60px">Tampil</th>
 			<th width="60px">Moderasi</th>
 			<th width="200px">Tanggal</th>
-			<th width="120px">Aksi</th>
+			<th width="150px">Aksi</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -37,8 +37,8 @@ Manage Post -
 			<td>{{{ $pin->date() }}}</td>
 			<td>
 				<div class="btn-group">
-			  		<a href="{{{ URL::to('user/pin/'.$pin->id.'/edit.php') }}}" class="btn btn-small btn-default">Edit</a>
-			  		<a href="{{{ URL::to('user/pin/'.$pin->id.'/delete.php') }}}" class="btn btn-small btn-danger">Hapus</a>
+			  		<a href="{{{ URL::to('user/pin/'.$pin->id.'/edit.php') }}}" class="btn btn-default btn-mini">Edit</a>
+			  		<a href="{{{ URL::to('user/pin/'.$pin->id.'/delete.php') }}}" class="btn btn-danger btn-mini">Hapus</a>
 				</div>
 			</td>
 		</tr>

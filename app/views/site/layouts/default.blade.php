@@ -9,6 +9,12 @@
     </title>
     <meta property="fb:app_id" content="294330260608032" /> 
     <meta property="og:url" content="{{ Request::url() }}" /> 
+    <meta property="og:type" content="website" /> 
+    <meta property="og:description" content="
+        @section('description') 
+            Mari berbagi di komunitas Satu Teladan
+        @show
+    " /> 
     <meta property="og:title" content="
         @section('title') 
             Satu Teladan

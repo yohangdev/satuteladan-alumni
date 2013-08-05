@@ -43,7 +43,7 @@ class Pin extends Eloquent {
 				$resizedFile   = str_replace(".jpg", "-215w.jpg", $contentSource);	
 				break;
 			case 'full_width':
-				$resizedFile   = $contentSource;	
+				$resizedFile   = str_replace(".jpg", "-570w.jpg", $contentSource);	
 				break;							
 		}
 
