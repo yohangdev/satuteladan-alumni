@@ -1,5 +1,6 @@
 /bootstrap/compiled.php
 /vendor
+/app/config/facebook.php
 /public/assets/build
 /public/storage/*
 !/public/storage/1
