@@ -21,7 +21,13 @@ class HomeController extends BaseController {
 
     public function getIndex()
     {
-        $pins = $this->pin->where('published', 1)->orderBy('created_at', 'DESC')->paginate(20);
+        $pins = $this->pin
+                    ->where('pins.published', 1)
+                    ->join('users', 'users.id', '=', 'pins.user_id')
+                    ->where('pins.moderation', 1)
+                    ->where('users.active', 1)
+                    ->orderBy('pins.created_at', 'DESC')
+                    ->paginate(20);
 
         return View::make('site/home/index', compact('pins'));
     } 

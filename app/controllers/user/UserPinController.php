@@ -164,6 +164,7 @@ class UserPinController extends BaseController {
             $this->pin->description = Input::get('description');
             $this->pin->user_id     = $user_id;
             $this->pin->published   = 1;
+            $this->pin->moderation  = 1;
 
             // Was the post updated?
             if($this->pin->save())
