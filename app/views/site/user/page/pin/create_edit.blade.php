@@ -30,8 +30,8 @@
 	@if (isset($pin))
 	<div class="form-group">
 		
-		<div class="col-lg-offset-2 col-lg-10">
-			<img src="{{ asset($pin->source) }}" height="300" />
+		<div class="col-lg-offset-2 col-lg-3">
+			{{ $pin->content('image', array('type' => 'thumbnail_home')) }}
 		</div>
 	</div>
 	@endif
@@ -43,6 +43,14 @@
 			{{ Form::label('title', $pin->title, array('class' => 'control-label')) }}
 		</div>
 	</div>
+	<div class="form-group {{ $errors->first('title', 'has-error') }}">
+		{{ Form::label('url', 'URL', array('class' => 'col-lg-2 control-label')) }}
+		<div class="col-lg-8">
+			<label class="control-label">
+			<a href="{{{ URL::to('pin/'.$pin->slug) }}}">{{{ URL::to('pin/'.$pin->slug) }}}</a>
+			</label>
+		</div>
+	</div>	
 	@else	
 	<div class="form-group {{ $errors->first('title', 'has-error') }}">
 		{{ Form::label('title', 'Judul', array('class' => 'col-lg-2 control-label')) }}

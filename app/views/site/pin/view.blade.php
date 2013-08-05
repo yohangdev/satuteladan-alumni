@@ -44,7 +44,7 @@
 					<span class="date">{{{ $pin->date() }}}</span>
 					<div class="clearfix"></div>
 				</div>	    		
-				<p class="desc" style="margin:20px 0">{{{ $pin->description }}}</p>
+				<p class="desc" style="margin:20px 0">{{ $pin->description() }}</p>
 				<div class="fb-like" data-width="450" data-colorscheme="light" data-layout="standard" data-action="like" data-show-faces="false" data-send="false"></div>
 			</div>
 
