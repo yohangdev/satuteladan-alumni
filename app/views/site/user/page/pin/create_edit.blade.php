@@ -14,8 +14,6 @@
 @section('page-content')
 
 
-
-
 @if (isset($pin))
 {{ Form::model($pin, array('url' => 'user/pin/'.$pin->id.'/edit.php', 'class' => 'form-horizontal')) }}
 @else
@@ -90,20 +88,18 @@
 		<div class="col-lg-8">
 			{{ Form::textarea('description', null, array('class' => 'form-control', 'placeholder' => 'Deskripsi')) }}
 			{{ $errors->first('description', '<span class="help-block">:message</span>') }}
-                        <div class="alert alert-danger alert-description" style="display:none">Deskripsi minimal 20 characters</div>
+                <div class="alert alert-danger alert-description" style="display:none">Deskripsi minimal 20 characters</div>
 		</div>
 	</div>
 
 	<div class="form-group">
 		<div class="col-lg-offset-2 col-lg-8">
-		        <span class="btn btn-primary" id="submitButton">Submit</span>	
+	        <span class="btn btn-primary" id="submitButton">Submit</span>	
 			<a href="{{ URL::to('user/pin/index.php') }}" class="btn btn-link">Cancel</a>
 		</div>
 	</div>
 </fieldset>
 {{ Form::close() }}
-
-<script src="/assets/js/create_edit.js"></script>
 
 @stop
 

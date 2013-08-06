@@ -50,6 +50,7 @@ return array(
                 $collection->add('../../../vendor/twitter/bootstrap/dist/js/bootstrap.min.js');
                 $collection->add('../../../private/assets/js/masonry.pkgd.min.js');
                 $collection->add('../../../private/assets/js/imagesloaded.pkgd.min.js');
+                $collection->add('create_edit.js');
                 $collection->add('holder.js');
                 // $collection->add('../../../private/assets/js/jquery.parallax-1.1.3.js');
                 // $collection->add('../../../private/assets/js/jquery.localscroll-1.2.7-min.js');

@@ -1,7 +1,9 @@
-$("#submitButton").click(function(){
-    if(checkForm()){
-        $("form").submit(); 
-    }
+$(document).ready(function () {
+    $("#submitButton").click(function(){
+        if(checkForm()){
+            $("form").submit(); 
+        }
+    });
 });
 
 function checkForm(){
