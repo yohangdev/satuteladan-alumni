@@ -1,5 +1,6 @@
 @extends('site.user.modal')
 
+
 @section('title')
 	@if (isset($pin))
 	Edit
@@ -11,6 +12,8 @@
 @stop
 
 @section('page-content')
+
+
 
 
 @if (isset($pin))
@@ -50,6 +53,7 @@
 			{{ Form::text('title', null, array('class' => 'form-control', 'placeholder' => 'Judul')) }}
 			<span class="help-block">Judul ini <strong>tidak bisa</strong> diubah di kemudian hari.</span>
 			{{ $errors->first('title', '<span class="help-block">:message</span>') }}
+                        <div class="alert alert-danger alert-title" style="display:none">Judul minimal 5 characters</div>
 		</div>
 	</div>
 	@endif
@@ -78,15 +82,20 @@
 		<div class="col-lg-8">
 			{{ Form::textarea('description', null, array('class' => 'form-control', 'placeholder' => 'Deskripsi')) }}
 			{{ $errors->first('description', '<span class="help-block">:message</span>') }}
+                        <div class="alert alert-danger alert-description" style="display:none">Deskripsi minimal 20 characters</div>
 		</div>
 	</div>
 
 	<div class="form-group">
 		<div class="col-lg-offset-2 col-lg-8">
-			{{ Form::submit('Submit', array('class' => 'btn btn-primary')) }}
+		        <span class="btn btn-primary" id="submitButton">Submit</span>	
 			<a href="{{ URL::to('user/pin/index.php') }}" class="btn btn-link">Cancel</a>
 		</div>
 	</div>
 </fieldset>
 {{ Form::close() }}
+
+<script src="/assets/js/create_edit.js"></script>
+
 @stop
+
