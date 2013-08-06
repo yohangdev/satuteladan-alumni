@@ -55,4 +55,16 @@
     </div>
 </div>
 
+<script type="text/javascript">
+var pin_container = $('.pin-content-container');
+
+pin_container.imagesLoaded( function() {
+
+	var pin_container_height = pin_container.height();
+
+	pin_container.css('height', pin_container_height - 50);
+	pin_container.css('overflow-y', 'hidden');
+});
+</script>
+
 @stop
