@@ -33,6 +33,11 @@ class Pin extends Eloquent {
 		return $this->belongsTo('User', 'user_id');
 	}
 
+	public function description()
+	{
+		return nl2br($this->description);
+	}	
+
 	public function content($type, $params=array())
 	{
 		$contentType   = $this->type;

@@ -30,7 +30,7 @@ Manage Post -
 	<tbody>
 		@foreach ($pins as $pin)
 		<tr>
-			<td>{{{ $pin->title }}}</td>
+			<td>{{{ $pin->title }}}<br /><small><a href="{{{ URL::to('pin/'.$pin->slug) }}}">{{{ URL::to('pin/'.$pin->slug) }}}</a></small></td>
 			<td>{{{ $pin->type }}}</td>
 			<td align="center">{{ ( $pin->published == 1 ? '<span class="label label-success">Ya</span>' : '<span class="label label-danger">Tidak</span>' ) }}</td>
 			<td><span class="label label-success">Diterima</span></td>

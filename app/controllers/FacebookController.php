@@ -12,11 +12,9 @@ class FacebookController extends BaseController {
 
         $code  = Input::get('code');
         
-        $appId     = '294330260608032';
-        $appSecret = 'b80f4cdc0c032c0728d2c3b93e6f263f';
+        $appId     = Config::get('facebook.app_id');
+        $appSecret = Config::get('facebook.app_secret');
         $redirect  = url('facebook/auth');
-        
-        // if user canceled ?
         
         $curl = New Curl;
 
