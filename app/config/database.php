@@ -57,7 +57,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'satuteladan_devel',
 			'username'  => 'root',
-			'password'  => 'abc123',
+			'password'  => '',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => 'satuteladan_',
