@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <title>
         @section('title')
-        Portal Satu Teladan - SMA Negeri 1 Yogyakarta
+        Satu Teladan - SMA Negeri 1 Yogyakarta
         @show        
     </title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
