@@ -91,7 +91,7 @@ class UserPinController extends BaseController {
         // Declare the rules for the form validation
         $rules = array(
             'title'       => 'required|min:5',
-            'description' => 'required|min:20',
+            'description' => 'required|min:20',            
             'image'       => 'required|image|mimes:jpeg|max:2000|imagemin'
         );
 
@@ -112,13 +112,7 @@ class UserPinController extends BaseController {
 
         // Check if the form validates with success
         if ($validator->passes())
-        {
-            if ( ! Input::hasFile('image'))
-            {
-                Notification::container('UserPageModal')->error('<strong>Warning!</strong> gagal diproses, file tidak dapat diupload');
-                return Redirect::to('user/pin/create.php')->withInput()->withErrors($validator);                
-            }            
-
+        {           
             $user_id     = Auth::user()->id;
             $destStorage = 'storage/' . $user_id . '/pins/';
             $destPath    = public_path() . '/' . $destStorage;
@@ -148,13 +142,24 @@ class UserPinController extends BaseController {
 
             Input::file('image')->move($destPath, $filename);
 
+            // watermark error when resized
+            // resize first, save
+            // open, do watermark, save
             $img       = Image::make( $filepath )->resize(570, null, true);
             $new_file  = str_replace(".jpg", "-570w.jpg", $filename);
-            $img->save( $destPath . $new_file ); 
+            $img->save( $destPath . $new_file, 100 ); 
+
+            $img       = Image::make( $destPath . $new_file );
+            $img       = $this->doWatermark($img);
+            $img->save( $destPath . $new_file, 100 ); 
 
             $img       = Image::make( $filepath )->resize(215, null, true);        
-            $new_file2 = str_replace(".jpg", "-215w.jpg", $filename);  
-            $img->save( $destPath . $new_file2 );             
+            $new_file = str_replace(".jpg", "-215w.jpg", $filename);  
+            $img->save( $destPath . $new_file, 100 );             
+
+            $img       = Image::make( $filepath );
+            $img       = $this->doWatermark($img);
+            $img->save( $filepath, 100 ); 
 
             // Update the post data
             $this->pin->title       = Input::get('title');
@@ -224,5 +229,18 @@ class UserPinController extends BaseController {
         // There was a problem deleting the post
         Notification::container('UserPageModal')->error('<strong>'.$title.'</strong> gagal dihapus.');
         return Redirect::to('user/pin/' . $id . '/delete.php');
+    }
+
+    private function doWatermark($imgInstance)
+    {
+        $img    = $imgInstance;
+        
+        $width  = $img->width;
+        $height = $img->height;
+
+        $img->rectangle('#E5E5E5', 0, $height-40, $width, $height);
+        $img->text('satuteladan.net | Bersama Berbagi Inspirasi', 20, $height-15, 12, '#A0A0A0', 0, '/Users/yogahanggara/WebServer/alumni/public/assets/font/DroidSans.ttf');
+        
+        return $img;         
     }          
 }

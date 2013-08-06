@@ -32,7 +32,9 @@
 @section('content')
 <div class="row">
     <div class="col-lg-6">
+    	<div class="pin-content-container">
 		{{ $pin->content('image', array('type' => 'full_width')) }}
+		</div>
     </div>
     <div class="col-lg-6">
     	<div class="pin-detail">
