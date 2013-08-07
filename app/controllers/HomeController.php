@@ -22,6 +22,7 @@ class HomeController extends BaseController {
     public function getIndex()
     {
         $pins = $this->pin
+                    ->select('*', 'pins.created_at as created_at')
                     ->where('pins.published', 1)
                     ->join('users', 'users.id', '=', 'pins.user_id')
                     ->where('pins.moderation', 1)
