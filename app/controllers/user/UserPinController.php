@@ -237,9 +237,10 @@ class UserPinController extends BaseController {
         
         $width  = $img->width;
         $height = $img->height;
+        $font   = public_path() . '/assets/font/DroidSans.ttf';
 
         $img->rectangle('#E5E5E5', 0, $height-40, $width, $height);
-        $img->text('satuteladan.net | Bersama Berbagi Inspirasi', 20, $height-15, 12, '#A0A0A0', 0, '/Users/yogahanggara/WebServer/alumni/public/assets/font/DroidSans.ttf');
+        $img->text('satuteladan.net | Bersama Berbagi Inspirasi', 20, $height-15, 12, '#A0A0A0', 0, $font);
         
         return $img;         
     }          
