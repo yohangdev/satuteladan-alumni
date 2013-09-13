@@ -145,6 +145,14 @@ class UserPinController extends BaseController {
             // watermark error when resized
             // resize first, save
             // open, do watermark, save
+            $img       = Image::make( $filepath )->resize(800, null, true);
+            $new_file  = str_replace(".jpg", "-800w.jpg", $filename);
+            $img->save( $destPath . $new_file, 100 );
+
+            $img       = Image::make( $destPath . $new_file );
+            $img       = $this->doWatermark($img);
+            $img->save( $destPath . $new_file, 100 );
+
             $img       = Image::make( $filepath )->resize(570, null, true);
             $new_file  = str_replace(".jpg", "-570w.jpg", $filename);
             $img->save( $destPath . $new_file, 100 );
