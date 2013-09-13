@@ -161,6 +161,7 @@ class UserPinController extends BaseController {
             $img       = $this->doWatermark($img);
             $img->save( $filepath, 100 );
 
+            /*
             $s3 = AWS::get('s3');
             $s3->putObject(array(
                 'Bucket'     => 'satuteladan',
@@ -168,6 +169,7 @@ class UserPinController extends BaseController {
                 'SourceFile' => $filepath,
                 'ACL'        => 'public-read',
             ));
+            */
 
             // Update the post data
             $this->pin->title       = Input::get('title');
