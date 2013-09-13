@@ -8,10 +8,10 @@ Manage Post -
 @section('page-content')
 <div>
 	<div class="pull-left">
-	<h3 style="margin-top: 0">Manage Post</h3> 
+	<h3 style="margin-top: 0">Manage Post</h3>
 	</div>
 	<div class="pull-left" style="margin-left: 10px">
-	<a href="{{{ URL::to('user/pin/create.php') }}}" class="btn btn-primary">Create New</a>
+	<a href="{{{ URL::to('user/pin/create.php') }}}" class="btn btn-primary">Upload Baru</a>
 	</div>
 	<div class="clearfix"></div>
 </div>
@@ -42,7 +42,7 @@ Manage Post -
 				</div>
 			</td>
 		</tr>
-		@endforeach	
+		@endforeach
 	</tbody>
 </table>
 @else

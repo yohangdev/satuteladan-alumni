@@ -5,31 +5,31 @@
     <title>
         @section('title')
         Satu Teladan - SMA Negeri 1 Yogyakarta
-        @show        
+        @show
     </title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
-    <meta property="fb:app_id" content="294330260608032" /> 
-    <meta property="og:url" content="{{ Request::url() }}" /> 
-    <meta property="og:type" content="website" /> 
+    <meta property="fb:app_id" content="294330260608032" />
+    <meta property="og:url" content="{{ Request::url() }}" />
+    <meta property="og:type" content="website" />
     <meta property="og:description" content="
-        @section('description') 
+        @section('description')
             Mari berbagi di komunitas Satu Teladan
         @show
-    " /> 
+    " />
     <meta property="og:title" content="
-        @section('title') 
+        @section('title')
             Satu Teladan
         @show
-        " /> 
+        " />
     <meta property="og:image" content="
-        @section('fb_image') 
+        @section('fb_image')
             https://fbcdn-profile-a.akamaihd.net/hprofile-ak-ash4/c28.28.345.345/s160x160/261309_432601843500639_262787513_n.jpg
         @show
-    " /> 
-    
+    " />
+
     <meta name="keywords" content="your, awesome, keywords, here" />
     <meta name="author" content="Jon Doe" />
-    <meta name="description" content="Lorem ipsum dolor sit amet, nihil fabulas et sea, nam posse menandri scripserit no, mei." />    
+    <meta name="description" content="Lorem ipsum dolor sit amet, nihil fabulas et sea, nam posse menandri scripserit no, mei." />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {{ Basset::show('public.css') }}
     {{ Basset::show('public.js') }}
@@ -44,7 +44,7 @@
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
-<div id="wrap">    
+<div id="wrap">
     <header class="header">
         <div class="navbar navbar-static-top">
             <div class="container">
@@ -52,8 +52,8 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
-                </button>                
-                <a href="{{{ URL::to('/') }}}" class="navbar-brand" href="#">Satu Teladan</a>                           
+                </button>
+                <a href="{{{ URL::to('/') }}}" class="navbar-brand" href="#">Satu Teladan</a>
                 <div class="nav-collapse collapse navbar-responsive-collapse">
                     <ul class="nav navbar-nav">
                         <li {{ (Request::is('/') ? ' class="active"' : '') }}><a href="{{{ URL::to('') }}}">Home</a></li>
@@ -81,11 +81,11 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="pull-left">
-                        <h3>Papan Kreativitas <span class="label label-danger">Uji Coba</span></h3> 
-                    </div>          
+                        <h3>Galeri Foto</h3>
+                    </div>
                     <div class="pull-right hidden-sm">
                         @if (Auth::check())
-                        <a href="{{{ URL::to('user/pin/create.php') }}}" class="btn btn-success">Create New Post</a>
+                        <a href="{{{ URL::to('user/pin/create.php') }}}" class="btn btn-success">Upload Foto</a>
                         <div class="btn-group">
                         <a href="{{{ URL::to('user/dashboard.php') }}}" class="btn btn-primary">My Account</a>
                         <a href="{{{ URL::to('logout.php') }}}" class="btn btn-danger">Log Out</a>
@@ -101,7 +101,7 @@
             </div>
         </div>
     </section>
-    
+
     <!-- Container -->
     <section class="area-main">
         <div class="container">
@@ -136,7 +136,7 @@
 <footer class="footer">
     <div class="container">
         <div class="row">
-            <div class="col-lg-3">        
+            <div class="col-lg-3">
                 <p style="letter-spacing: 0.1em; word-spacing: 0.1em;font-size: 8pt;">2013 &copy; TIM SATUTELADAN.NET</p>
                 <p>Built with all the love in the world.</p>
                 <br />

@@ -26,22 +26,22 @@ class UserPinController extends BaseController {
         $pins = $this->pin->where('user_id', $user_id)->orderBy('created_at', 'DESC')->paginate(5);
 
         return View::make('site/user/page/pin/index', compact('pins'));
-    } 
+    }
 
     public function getEdit($pin)
     {
-        if($pin->user_id != Auth::user()->id) {          
+        if($pin->user_id != Auth::user()->id) {
             App::abort(401, 'You are not authorized.');
         }
 
         return View::make('site/user/page/pin/create_edit', compact('pin'));
-    }    
+    }
 
     public function postEdit($pin)
     {
-        if($pin->user_id != Auth::user()->id) {          
+        if($pin->user_id != Auth::user()->id) {
             App::abort(401, 'You are not authorized.');
-        }        
+        }
 
         // Declare the rules for the form validation
         $rules = array(
@@ -91,7 +91,7 @@ class UserPinController extends BaseController {
         // Declare the rules for the form validation
         $rules = array(
             'title'       => 'required|min:5',
-            'description' => 'required|min:20',            
+            'description' => 'required|min:20',
             'image'       => 'required|image|mimes:jpeg|max:2000|imagemin'
         );
 
@@ -112,7 +112,7 @@ class UserPinController extends BaseController {
 
         // Check if the form validates with success
         if ($validator->passes())
-        {           
+        {
             $user_id     = Auth::user()->id;
             $destStorage = 'storage/' . $user_id . '/pins/';
             $destPath    = public_path() . '/' . $destStorage;
@@ -121,7 +121,7 @@ class UserPinController extends BaseController {
             $loop    = true;
             $n       = 2;
             $title   = Str::slug(Input::get('title'));
-            
+
             $slug    = $title . '.html';
             $slug_db = Pin::withTrashed()->where('slug', $slug)->count();
 
@@ -129,7 +129,7 @@ class UserPinController extends BaseController {
                 while($loop) {
                     $slug    = $title . '-' . $n . '.html';
                     $slug_db = Pin::withTrashed()->where('slug', $slug)->count();
-                    $n++;   
+                    $n++;
 
                     if((int) $slug_db == 0)
                         $loop = false;
@@ -147,19 +147,27 @@ class UserPinController extends BaseController {
             // open, do watermark, save
             $img       = Image::make( $filepath )->resize(570, null, true);
             $new_file  = str_replace(".jpg", "-570w.jpg", $filename);
-            $img->save( $destPath . $new_file, 100 ); 
+            $img->save( $destPath . $new_file, 100 );
 
             $img       = Image::make( $destPath . $new_file );
             $img       = $this->doWatermark($img);
-            $img->save( $destPath . $new_file, 100 ); 
+            $img->save( $destPath . $new_file, 100 );
 
-            $img       = Image::make( $filepath )->resize(215, null, true);        
-            $new_file = str_replace(".jpg", "-215w.jpg", $filename);  
-            $img->save( $destPath . $new_file, 100 );             
+            $img       = Image::make( $filepath )->resize(215, null, true);
+            $new_file = str_replace(".jpg", "-215w.jpg", $filename);
+            $img->save( $destPath . $new_file, 100 );
 
             $img       = Image::make( $filepath );
             $img       = $this->doWatermark($img);
-            $img->save( $filepath, 100 ); 
+            $img->save( $filepath, 100 );
+
+            $s3 = AWS::get('s3');
+            $s3->putObject(array(
+                'Bucket'     => 'satuteladan',
+                'Key'        => $filename,
+                'SourceFile' => $filepath,
+                'ACL'        => 'public-read',
+            ));
 
             // Update the post data
             $this->pin->title       = Input::get('title');
@@ -174,7 +182,7 @@ class UserPinController extends BaseController {
             // Was the post updated?
             if($this->pin->save())
             {
-                Notification::container('UserPageModal')->success('<strong>'.$this->pin->title.'</strong> berhasil disimpan.');             
+                Notification::container('UserPageModal')->success('<strong>'.$this->pin->title.'</strong> berhasil disimpan.');
                 return Redirect::to('user/pin/' . $this->pin->id . '/edit.php');
             }
 
@@ -189,16 +197,16 @@ class UserPinController extends BaseController {
 
     public function getDelete($pin)
     {
-        if($pin->user_id != Auth::user()->id) {          
+        if($pin->user_id != Auth::user()->id) {
             App::abort(401, 'You are not authorized.');
-        }  
+        }
 
         return View::make('site/user/page/pin/delete', compact('pin'));
-    }   
+    }
 
     public function postDelete($pin)
     {
-        if($pin->user_id != Auth::user()->id) {          
+        if($pin->user_id != Auth::user()->id) {
             App::abort(401, 'You are not authorized.');
         }
 
@@ -234,14 +242,14 @@ class UserPinController extends BaseController {
     private function doWatermark($imgInstance)
     {
         $img    = $imgInstance;
-        
+
         $width  = $img->width;
         $height = $img->height;
         $font   = public_path() . '/assets/font/DroidSans.ttf';
 
         $img->rectangle('#E5E5E5', 0, $height-40, $width, $height);
         $img->text('satuteladan.net | Bersama Berbagi Inspirasi', 20, $height-15, 12, '#A0A0A0', 0, $font);
-        
-        return $img;         
-    }          
+
+        return $img;
+    }
 }

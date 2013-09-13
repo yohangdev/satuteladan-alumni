@@ -38,29 +38,33 @@ Login -
     <div class="alert alert-danger">{{ Session::get('login-error') }}</div>
     @endif
 
-    <div class="accordion" id="accordion">
-    	<div class="accordion-group">
-    		<div class="accordion-heading">
+    <div class="panel-group" id="accordion">
+        <div class="panel">
+            <div class="panel-heading">
+                <h4 class="panel-title">
     			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
     				Facebook
     			</a>
+                </h4>
     		</div>
-    		<div id="collapseOne" class="accordion-body collapse in">
-    			<div class="accordion-inner">
+    		<div id="collapseOne" class="panel-collapse collapse in">
+    			<div class="panel-body">
 					<a href="https://www.facebook.com/dialog/oauth?client_id=294330260608032&amp;scope=email,user_photos&amp;redirect_uri={{{ url('facebook/auth') }}}">
 						<img src="{{ asset('assets/img/fb-login.png') }}" class="img-responsive" />
 					</a>
     			</div>
     		</div>
     	</div>
-    	<div class="accordion-group">
-    		<div class="accordion-heading">
+    	<div class="panel">
+    		<div class="panel-heading">
+                <h4 class="panel-title">
     			<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
     				Email &amp; Password
     			</a>
+                </h4>
     		</div>
-    		<div id="collapseTwo" class="accordion-body collapse">
-    			<div class="accordion-inner">
+    		<div id="collapseTwo" class="panel-collapse collapse">
+    			<div class="panel-body">
 					<form method="POST" action="{{ URL::to('login.php') }}">
 					    <input type="hidden" name="_token" value="{{ csrf_token() }}">
 					    <fieldset>
