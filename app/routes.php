@@ -18,45 +18,52 @@ Route::model('pin', 'Pin');
 Route::group(array('prefix' => 'user', 'before' => 'auth'), function()
 {
     # User Dashboard
-    Route::get('dashboard.php', function()
+    Route::get('dashboard', function()
 	{
 		return View::make('site/user/page/dashboard');
 	});
 
-    Route::get('pin/index.php', 'UserPinController@getIndex');
+    Route::group(array('prefix' => 'pin'), function()
+    {
+        Route::get('/', 'UserPinController@getIndex');
 
-    Route::get('pin/create.php', 'UserPinController@getCreate');
-    Route::post('pin/create.php', 'UserPinController@postCreate'); 
+        Route::get('create', 'UserPinController@getCreate');
+        Route::post('pin/create', 'UserPinController@postCreate');
 
-    Route::get('pin/{pin}/edit.php', 'UserPinController@getEdit')
-        ->where('pin', '[0-9]+');    
-    Route::post('pin/{pin}/edit.php', 'UserPinController@postEdit')
-        ->where('pin', '[0-9]+');  
+        Route::get('{pin}/edit', 'UserPinController@getEdit')
+            ->where('pin', '[0-9]+');
+        Route::post('{pin}/edit', 'UserPinController@postEdit')
+            ->where('pin', '[0-9]+');
 
-    Route::get('pin/{pin}/delete.php', 'UserPinController@getDelete')
-        ->where('pin', '[0-9]+');    
-    Route::post('pin/{pin}/delete.php', 'UserPinController@postDelete')
-        ->where('pin', '[0-9]+');                     
+        Route::get('{pin}/delete', 'UserPinController@getDelete')
+            ->where('pin', '[0-9]+');
+        Route::post('{pin}/delete', 'UserPinController@postDelete')
+            ->where('pin', '[0-9]+');
+    });
 });
 
-Route::get('register.php', function()
+
+// Pin Area
+Route::group(array('prefix' => 'pin'), function()
+{
+    Route::get('{PinSlug}', 'PinController@getView')
+        ->where('PinSlug', '^.*\.(html)');
+});
+
+Route::get('register', function()
 {
 	return View::make('site/user/register');
 });
 
-Route::get('login.php', function()
+Route::get('login', function()
 {
 	return View::make('site/user/login');
-});	
+});
 
-Route::post('login.php', 'UserController@postLogin');
-Route::get('logout.php', 'UserController@getLogout');	
+Route::post('login', 'UserController@postLogin');
+Route::get('logout', 'UserController@getLogout');
 
-
-// Pin Area
-Route::get('pin/{PinSlug}', 'PinController@getView')
-	->where('PinSlug', '^.*\.(html)');
 
 Route::get('facebook/auth', 'FacebookController@getAuth');
 
-Route::get('/', 'HomeController@getIndex');	
+Route::get('/', 'HomeController@getIndex');

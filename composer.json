@@ -6,16 +6,16 @@
 	"require": {
 		"laravel/framework": "4.0.*",
 		"jasonlewis/basset": "dev-master",
-		"twitter/bootstrap": "dev-master",
+		"twitter/bootstrap": "v3.0.0",
 		"fortawesome/font-awesome": "dev-master",
 		"davejamesmiller/laravel-breadcrumbs": "dev-master",
 		"laravel/curl": "dev-master",
 		"intervention/image": "dev-master",
-		"edvinaskrucas/notification": "1.*",
-		"aws/aws-sdk-php-laravel": "1.*"
+		"edvinaskrucas/notification": "dev-master",
+		"aws/aws-sdk-php-laravel": "dev-master"
 	},
 	"require-dev": {
-        "leafo/lessphp": "v0.3.9",
+        "leafo/lessphp": "v0.4.0",
         "natxet/CssMin": "dev-master",
         "lmammino/jsmin4assetic": "1.0.*"
 	},

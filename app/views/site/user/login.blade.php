@@ -65,7 +65,7 @@ Login -
     		</div>
     		<div id="collapseTwo" class="panel-collapse collapse">
     			<div class="panel-body">
-					<form method="POST" action="{{ URL::to('login.php') }}">
+					<form method="POST" action="{{ URL::to('login') }}">
 					    <input type="hidden" name="_token" value="{{ csrf_token() }}">
 					    <fieldset>
 					    	<div class="form-group">

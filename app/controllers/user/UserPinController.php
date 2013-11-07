@@ -67,16 +67,16 @@ class UserPinController extends BaseController {
             if($pin->save())
             {
                 Notification::container('UserPageModal')->success('<strong>'.$pin->title.'</strong> berhasil disimpan.');
-                return Redirect::to('user/pin/' . $pin->id . '/edit.php');
+                return Redirect::to('user/pin/' . $pin->id . '/edit');
             }
 
             Notification::container('UserPageModal')->error('<strong>'.$pin->title.'</strong> gagal disimpan.');
-            return Redirect::to('user/pin/' . $pin->id . '/edit.php');
+            return Redirect::to('user/pin/' . $pin->id . '/edit');
         }
 
         // Form validation failed
         Notification::container('UserPageModal')->error('<strong>'.$pin->title.'</strong> gagal diproses, data tidak valid. Cek kembali formulir isian.');
-        return Redirect::to('user/pin/' . $pin->id . '/edit.php')->withInput()->withErrors($validator);
+        return Redirect::to('user/pin/' . $pin->id . '/edit')->withInput()->withErrors($validator);
     }
 
     public function getCreate()
@@ -193,16 +193,16 @@ class UserPinController extends BaseController {
             if($this->pin->save())
             {
                 Notification::container('UserPageModal')->success('<strong>'.$this->pin->title.'</strong> berhasil disimpan.');
-                return Redirect::to('user/pin/' . $this->pin->id . '/edit.php');
+                return Redirect::to('user/pin/' . $this->pin->id . '/edit');
             }
 
             Notification::container('UserPageModal')->error('<strong>'.$this->pin->title.'</strong> gagal disimpan.');
-            return Redirect::to('user/pin/' . $this->pin->id . '/edit.php');
+            return Redirect::to('user/pin/' . $this->pin->id . '/edit');
         }
 
         // Form validation failed
         Notification::container('UserPageModal')->error('<strong>'.Input::get('title').'</strong> gagal diproses, data tidak valid. Cek kembali formulir isian.');
-        return Redirect::to('user/pin/create.php')->withInput()->withErrors($validator);
+        return Redirect::to('user/pin/create')->withInput()->withErrors($validator);
     }
 
     public function getDelete($pin)
@@ -241,12 +241,12 @@ class UserPinController extends BaseController {
             {
                 // Redirect to the posts management page
                 Notification::container('UserPageModal')->info('<strong>'.$title.'</strong> berhasil dihapus.');
-                return Redirect::to('user/pin/index.php');
+                return Redirect::to('user/pin/');
             }
         }
         // There was a problem deleting the post
         Notification::container('UserPageModal')->error('<strong>'.$title.'</strong> gagal dihapus.');
-        return Redirect::to('user/pin/' . $id . '/delete.php');
+        return Redirect::to('user/pin/' . $id . '/delete');
     }
 
     private function doWatermark($imgInstance)

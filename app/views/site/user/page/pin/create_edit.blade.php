@@ -15,9 +15,9 @@
 
 
 @if (isset($pin))
-{{ Form::model($pin, array('url' => 'user/pin/'.$pin->id.'/edit.php', 'class' => 'form-horizontal')) }}
+{{ Form::model($pin, array('url' => 'user/pin/'.$pin->id.'/edit', 'class' => 'form-horizontal')) }}
 @else
-{{ Form::open(array('url' => 'user/pin/create.php', 'files' => true, 'class' => 'form-horizontal')) }}
+{{ Form::open(array('url' => 'user/pin/create', 'files' => true, 'class' => 'form-horizontal')) }}
 @endif
 <fieldset>
 	<legend>
@@ -30,7 +30,7 @@
 
 	@if (isset($pin))
 	<div class="form-group">
-		
+
 		<div class="col-lg-offset-2 col-lg-3">
 			{{ $pin->content('image', array('type' => 'thumbnail_home')) }}
 		</div>
@@ -51,8 +51,8 @@
 			<a href="{{{ URL::to('pin/'.$pin->slug) }}}">{{{ URL::to('pin/'.$pin->slug) }}}</a>
 			</label>
 		</div>
-	</div>	
-	@else	
+	</div>
+	@else
 	<div class="form-group {{ $errors->first('title', 'has-error') }}">
 		{{ Form::label('title', 'Judul', array('class' => 'col-lg-2 control-label')) }}
 		<div class="col-lg-8">
@@ -94,8 +94,8 @@
 
 	<div class="form-group">
 		<div class="col-lg-offset-2 col-lg-8">
-	        <span class="btn btn-primary" id="submitButton">Submit</span>	
-			<a href="{{ URL::to('user/pin/index.php') }}" class="btn btn-link">Cancel</a>
+	        <span class="btn btn-primary" id="submitButton">Submit</span>
+			<a href="{{ URL::to('user/pin/') }}" class="btn btn-link">Cancel</a>
 		</div>
 	</div>
 </fieldset>

@@ -11,12 +11,12 @@ Delete Post -
 <p>Anda yakin ingin menghapus <strong> {{ $pin->title }} </strong> ? </p>
 <p><img src="{{ asset($pin->source) }}" height="300" /></p>
 
-{{ Form::open(array('url' => 'user/pin/'.$pin->id.'/delete.php', 'class' => 'form-horizontal')) }}
+{{ Form::open(array('url' => 'user/pin/'.$pin->id.'/delete', 'class' => 'form-horizontal')) }}
 
 {{ Form::hidden('id', $pin->id) }}
 
 {{ Form::submit('Hapus', array('class' => 'btn btn-danger')) }}
-<a href="{{ URL::to('user/pin/index.php') }}" class="btn btn-link">Cancel</a>
+<a href="{{ URL::to('user/pin/') }}" class="btn btn-link">Cancel</a>
 
 {{ Form::close() }}
 @stop

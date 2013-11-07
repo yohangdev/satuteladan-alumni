@@ -38,12 +38,12 @@ class UserController extends BaseController {
             $user = Auth::user();
             $user->login_last = New DateTime;
             $user->save();
-            return Redirect::intended('user/dashboard.php');
+            return Redirect::intended('user/dashboard');
         }
         else
         {
             Session::flash('login-error', 'Alamat email atau password salah');
-            return Redirect::to('login.php')
+            return Redirect::to('login')
                 ->withInput(Input::except('password'));
         }
     }
@@ -51,7 +51,7 @@ class UserController extends BaseController {
     public function getLogout()
     {
         Auth::logout();
-        return Redirect::to('login.php');
+        return Redirect::to('login');
     }
 
 }

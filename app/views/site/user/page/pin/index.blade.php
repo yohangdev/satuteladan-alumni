@@ -11,7 +11,7 @@ Manage Post -
 	<h3 style="margin-top: 0">Manage Post</h3>
 	</div>
 	<div class="pull-left" style="margin-left: 10px">
-	<a href="{{{ URL::to('user/pin/create.php') }}}" class="btn btn-primary">Upload Baru</a>
+	<a href="{{{ URL::to('user/pin/create') }}}" class="btn btn-primary">Upload Baru</a>
 	</div>
 	<div class="clearfix"></div>
 </div>
@@ -37,8 +37,8 @@ Manage Post -
 			<td>{{{ $pin->date() }}}</td>
 			<td>
 				<div class="btn-group">
-			  		<a href="{{{ URL::to('user/pin/'.$pin->id.'/edit.php') }}}" class="btn btn-default btn-mini">Edit</a>
-			  		<a href="{{{ URL::to('user/pin/'.$pin->id.'/delete.php') }}}" class="btn btn-danger btn-mini">Hapus</a>
+			  		<a href="{{{ URL::to('user/pin/'.$pin->id.'/edit') }}}" class="btn btn-default btn-mini">Edit</a>
+			  		<a href="{{{ URL::to('user/pin/'.$pin->id.'/delete') }}}" class="btn btn-danger btn-mini">Hapus</a>
 				</div>
 			</td>
 		</tr>

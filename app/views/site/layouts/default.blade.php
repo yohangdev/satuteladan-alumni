@@ -58,11 +58,11 @@
                     <ul class="nav navbar-nav">
                         <li {{ (Request::is('/') ? ' class="active"' : '') }}><a href="{{{ URL::to('') }}}">Home</a></li>
                         @if (Auth::check())
-                        <li class="visible-sm"><a href="{{{ URL::to('user/dashboard.php') }}}">Dashboard</a></li>
-                        <li class="visible-sm"><a href="{{{ URL::to('logout.php') }}}">Log Out</a></li>
+                        <li class="visible-sm"><a href="{{{ URL::to('user/dashboard') }}}">Dashboard</a></li>
+                        <li class="visible-sm"><a href="{{{ URL::to('logout') }}}">Log Out</a></li>
                         @else
-                        <li class="visible-sm"><a href="{{{ URL::to('login.php') }}}">Login</a></li>
-                        <li class="visible-sm"><a href="{{{ URL::to('register.php') }}}">Register</a></li>
+                        <li class="visible-sm"><a href="{{{ URL::to('login') }}}">Login</a></li>
+                        <li class="visible-sm"><a href="{{{ URL::to('register') }}}">Register</a></li>
                         @endif
                     </ul>
                 </div>
@@ -85,15 +85,15 @@
                     </div>
                     <div class="pull-right hidden-sm">
                         @if (Auth::check())
-                        <a href="{{{ URL::to('user/pin/create.php') }}}" class="btn btn-success">Upload Foto</a>
+                        <a href="{{{ URL::to('user/pin/create') }}}" class="btn btn-success">Upload Foto</a>
                         <div class="btn-group">
-                        <a href="{{{ URL::to('user/dashboard.php') }}}" class="btn btn-primary">My Account</a>
-                        <a href="{{{ URL::to('logout.php') }}}" class="btn btn-danger">Log Out</a>
+                        <a href="{{{ URL::to('user/dashboard') }}}" class="btn btn-primary">My Account</a>
+                        <a href="{{{ URL::to('logout') }}}" class="btn btn-danger">Log Out</a>
                         </div>
                         @else
                         <div class="btn-group">
-                        <a href="{{{ URL::to('login.php') }}}" class="btn btn-primary">Log In</a>
-                        <a href="{{{ URL::to('register.php') }}}" class="btn btn-success">Register</a>
+                        <a href="{{{ URL::to('login') }}}" class="btn btn-primary">Log In</a>
+                        <a href="{{{ URL::to('register') }}}" class="btn btn-success">Register</a>
                         </div>
                         @endif
                     </div>
