@@ -28,7 +28,7 @@ Route::group(array('prefix' => 'user', 'before' => 'auth'), function()
         Route::get('/', 'UserPinController@getIndex');
 
         Route::get('create', 'UserPinController@getCreate');
-        Route::post('pin/create', 'UserPinController@postCreate');
+        Route::post('create', 'UserPinController@postCreate');
 
         Route::get('{pin}/edit', 'UserPinController@getEdit')
             ->where('pin', '[0-9]+');
