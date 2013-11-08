@@ -118,6 +118,8 @@ class FacebookController extends BaseController {
 
         // Log in user, remember session
         Auth::loginUsingId($user_id, true);
+        $item->login_last = New DateTime;
+        $item->save();
 
         // Redirect to Dashboard
         return Redirect::to('user/dashboard');
