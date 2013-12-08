@@ -83,7 +83,7 @@
                     <div class="pull-left">
                         <h3>Galeri Foto</h3>
                     </div>
-                    <div class="pull-right hidden-sm">
+                    <div class="pull-right hidden-xs">
                         @if (Auth::check())
                         <a href="{{{ URL::to('user/pin/create') }}}" class="btn btn-success">Upload Foto</a>
                         <div class="btn-group">
