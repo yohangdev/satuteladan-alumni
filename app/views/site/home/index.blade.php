@@ -45,9 +45,9 @@
 						<span class="date">{{{ $pin->date() }}}</span>
 					</div>
 				</div>
-			</div>		
-			@endforeach	
-			<?php // endfor; ?>																							
+			</div>
+			@endforeach
+			<?php // endfor; ?>
 		</div>
 		{{ $pins->links() }}
     </div>
@@ -58,7 +58,7 @@ $('#masonry').imagesLoaded( function(){
   $('#masonry').masonry({
    itemSelector: '.item',
    isFitWidth: true,
-   gutter: 20
+   gutter: 15
   });
 });
 </script>
