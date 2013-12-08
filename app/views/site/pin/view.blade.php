@@ -2,7 +2,7 @@
 
 {{-- Web site Title --}}
 @section('title')
-	{{{ $pin->title }}} - 
+	{{{ $pin->title }}} -
 @parent
 @stop
 
@@ -45,16 +45,17 @@
 					<span class="name"><a href="#">{{{ $pin->author->name }}}</a></span>
 					<span class="date">{{{ $pin->date() }}}</span>
 					<div class="clearfix"></div>
-				</div>	    		
+				</div>
 				<p class="desc" style="margin:20px 0">{{ $pin->description() }}</p>
 				<div class="fb-like" data-width="450" data-colorscheme="light" data-layout="standard" data-action="like" data-show-faces="false" data-send="false"></div>
 			</div>
 
-	    	<div class="fb-comments" data-href="{{{ $pin->url() }}}" data-colorscheme="light" data-width="570"></div>    
-    	</div>	
+	    	<div class="fb-comments" data-href="{{{ $pin->url() }}}" data-colorscheme="light" data-width="570"></div>
+    	</div>
     </div>
 </div>
 
+<!--
 <script type="text/javascript">
 var pin_container = $('.pin-content-container');
 
@@ -66,5 +67,6 @@ pin_container.imagesLoaded( function() {
 	pin_container.css('overflow-y', 'hidden');
 });
 </script>
+-->
 
 @stop

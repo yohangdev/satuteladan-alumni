@@ -53,7 +53,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a href="{{{ URL::to('/') }}}" class="navbar-brand" href="#">Satu Teladan</a>
+                <a href="{{{ URL::to('/') }}}" class="navbar-brand" href="#">Satu Teladan - SMA Negeri 1 Yogyakarta</a>
                 <div class="nav-collapse collapse navbar-responsive-collapse">
                     <ul class="nav navbar-nav">
                         <li {{ (Request::is('/') ? ' class="active"' : '') }}><a href="{{{ URL::to('') }}}">Home</a></li>
